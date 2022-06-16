@@ -22,11 +22,13 @@ namespace CamposDealer_Teste_Back.Services
 
         public async Task<Produto> Obter(int id)
         {
-            if(id <= 0)
-                throw new Exception("Id de produto invalido");
-
-            return await _context.Produtos.Where(p => p.idProduto == id)
+            var produto = await _context.Produtos.Where(p => p.idProduto == id)
                            .FirstOrDefaultAsync();
+
+            if (produto == null)
+                throw new Exception("Não foi Possivel Encontrar o Produto");
+
+            return produto;
         }
 
         public async Task<Produto> Criar(ProdutoDTO dto)
