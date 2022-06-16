@@ -142,15 +142,22 @@
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VendaController.cs" />
     <Compile Include="Data\CamposDealerDbContext.cs" />
     <Compile Include="DTO\Cliente\ClienteDTO.cs" />
     <Compile Include="DTO\Produto\ProdutoDTO.cs" />
+    <Compile Include="DTO\Venda\CadastrarVendaDTO.cs" />
+    <Compile Include="DTO\Venda\EditarVendaDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202206160108106_Initial.cs" />
     <Compile Include="Migrations\202206160108106_Initial.Designer.cs">
       <DependentUpon>202206160108106_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206162205338_fix decimal on valor.cs" />
+    <Compile Include="Migrations\202206162205338_fix decimal on valor.Designer.cs">
+      <DependentUpon>202206162205338_fix decimal on valor.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -159,6 +166,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ClienteService.cs" />
     <Compile Include="Services\ProdutoService.cs" />
+    <Compile Include="Services\VendaService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -180,6 +188,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202206160108106_Initial.resx">
       <DependentUpon>202206160108106_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206162205338_fix decimal on valor.resx">
+      <DependentUpon>202206162205338_fix decimal on valor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

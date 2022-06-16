@@ -12,9 +12,9 @@ namespace CamposDealer_Teste_Back.Models
         [Key]
         public int idVenda { get; set; }
         public int qtdVenda { get; set; }
-        public int vlrUnitarioVenda { get; set; }
+        public decimal vlrUnitarioVenda { get; set; }
         public DateTime dthVenda { get; set; }
-        public int vlrTotalVenda { get; set; }
+        public decimal vlrTotalVenda { get; set; }
 
         //FK - Cliente
         public int idCliente { get; set; }
