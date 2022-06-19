@@ -16,7 +16,10 @@ namespace CamposDealer_Teste_Back.Services
         
         public async Task<List<Venda>> Listar()
         {
-            return await _context.Vendas.ToListAsync();
+            return await _context.Vendas
+                .Include(v => v.Cliente)
+                .Include(v => v.Produto)
+                .ToListAsync();
         }
 
         public async Task<Venda> Cadastrar(CadastrarVendaDTO dto)

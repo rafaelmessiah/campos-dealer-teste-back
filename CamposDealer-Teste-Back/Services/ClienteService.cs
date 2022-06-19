@@ -31,7 +31,7 @@ namespace CamposDealer_Teste_Back.Services
 
         }
 
-        public async Task<Cliente> Criar(ClienteDTO dto)
+        public async Task<Cliente> Cadastrar(ClienteDTO dto)
         {
             dto.Validar();
 

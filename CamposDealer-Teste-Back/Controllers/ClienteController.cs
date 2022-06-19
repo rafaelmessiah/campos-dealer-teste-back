@@ -32,9 +32,9 @@ namespace CamposDealer_Teste_Back.Controllers
         }
 
         [HttpPost]
-        public async Task<Cliente> Criar([FromBody]ClienteDTO dto)
+        public async Task<Cliente> Cadastrar([FromBody]ClienteDTO dto)
         {
-            return await _clienteService.Criar(dto);
+            return await _clienteService.Cadastrar(dto);
         }
 
         [HttpPut]
