@@ -31,6 +31,12 @@ namespace CamposDealer_Teste_Back.Controllers
             return await _clienteService.Obter(id);
         }
 
+        [HttpGet]
+        public async Task<List<Cliente>> Buscar(string searchString)
+        {
+            return await _clienteService.Buscar(searchString);
+        }
+
         [HttpPost]
         public async Task<Cliente> Cadastrar([FromBody]ClienteDTO dto)
         {

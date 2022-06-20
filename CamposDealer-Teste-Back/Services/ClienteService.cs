@@ -31,6 +31,15 @@ namespace CamposDealer_Teste_Back.Services
 
         }
 
+        public async Task<List<Cliente>> Buscar(string searchString)
+        {
+            if (string.IsNullOrEmpty(searchString))
+                throw new Exception("Pesquisa invalida");
+
+            return await _context.Clientes.Where(c => c.nmCliente.Contains(searchString))
+                .ToListAsync();
+        }
+
         public async Task<Cliente> Cadastrar(ClienteDTO dto)
         {
             dto.Validar();
