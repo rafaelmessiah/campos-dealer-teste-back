@@ -144,8 +144,7 @@
     <Compile Include="Data\CamposDealerDbContext.cs" />
     <Compile Include="DTO\Cliente\ClienteDTO.cs" />
     <Compile Include="DTO\Produto\ProdutoDTO.cs" />
-    <Compile Include="DTO\Venda\CadastrarVendaDTO.cs" />
-    <Compile Include="DTO\Venda\EditarVendaDTO.cs" />
+    <Compile Include="DTO\Venda\VendaDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -26,7 +26,7 @@ namespace CamposDealer_Teste_Back.Controllers
         }
 
         [HttpPost]
-        public async Task<Venda> Cadastrar([FromBody]CadastrarVendaDTO dto)
+        public async Task<Venda> Cadastrar([FromBody]VendaDTO dto)
         {
             return await _vendaService.Cadastrar(dto);
         }

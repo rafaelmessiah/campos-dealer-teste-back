@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CamposDealer_Teste_Back.DTO.Venda
 {
-    public class CadastrarVendaDTO
+    public class VendaDTO
     {
         public int idCliente { get; set; }
         public int idProduto { get; set; }

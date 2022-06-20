@@ -22,7 +22,7 @@ namespace CamposDealer_Teste_Back.Services
                 .ToListAsync();
         }
 
-        public async Task<Venda> Cadastrar(CadastrarVendaDTO dto)
+        public async Task<Venda> Cadastrar(VendaDTO dto)
         {
             dto.Validar();
 
@@ -70,7 +70,7 @@ namespace CamposDealer_Teste_Back.Services
             return venda;
         }
 
-        public async Task<Venda> Editar(int id, EditarVendaDTO dto)
+        public async Task<Venda> Editar(int id, VendaDTO dto)
         {
             //Encontra a Venda
             var venda = await _context.Vendas.Where(v => v.idVenda == id).FirstOrDefaultAsync();
@@ -92,16 +92,11 @@ namespace CamposDealer_Teste_Back.Services
             if (cliente == null)
                 throw new Exception("Não foi possível encontrar o Cliente");
 
-            //Valida a data
-            if (DateTime.Compare(dto.dthVenda, DateTime.Now) > 0)
-                throw new Exception("Nova data de venda inválida");
-
             //Atualiza os dados da venda
             venda.idCliente = cliente.idCliente;
             venda.idProduto = produto.idProduto;
             venda.qtdVenda = dto.qtdVenda;
             venda.vlrUnitarioVenda = produto.vlrUnitario;
-            venda.dthVenda = dto.dthVenda;
             venda.vlrTotalVenda = produto.vlrUnitario * dto.qtdVenda;
 
             await _context.SaveChangesAsync();
