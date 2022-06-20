@@ -24,6 +24,12 @@ namespace CamposDealer_Teste_Back.Controllers
         {
             return await _produtoService.Listar();
         }
+        
+        [HttpGet]
+        public async Task<List<Produto>> Buscar(string searchString)
+        {
+            return await _produtoService.Buscar(searchString);
+        }
 
         [HttpGet]
         public async Task<Produto> Obter(int id)

@@ -31,6 +31,15 @@ namespace CamposDealer_Teste_Back.Services
             return produto;
         }
 
+        public async Task<List<Produto>> Buscar(string searchString)
+        {
+            if (string.IsNullOrEmpty(searchString))
+                throw new Exception("Pesquisa invalida");
+
+            return await _context.Produtos.Where(p => p.dscProduto.Contains(searchString))
+                .ToListAsync();
+        }
+
         public async Task<Produto> Criar(ProdutoDTO dto)
         {
             dto.Validar();

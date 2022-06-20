@@ -72,6 +72,8 @@ namespace CamposDealer_Teste_Back.Services
 
         public async Task<Venda> Editar(int id, VendaDTO dto)
         {
+            dto.Validar();
+
             //Encontra a Venda
             var venda = await _context.Vendas.Where(v => v.idVenda == id).FirstOrDefaultAsync();
 
