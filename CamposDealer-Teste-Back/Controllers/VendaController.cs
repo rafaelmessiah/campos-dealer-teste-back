@@ -37,6 +37,12 @@ namespace CamposDealer_Teste_Back.Controllers
             return await _vendaService.Obter(id);
         }
 
+        [HttpGet]
+        public async Task<List<Venda>> Buscar(string searchString)
+        {
+            return await _vendaService.Buscar(searchString);
+        }
+
         [HttpPut]
         public async Task<Venda> Editar(int id, [FromBody]VendaDTO dto)
         {

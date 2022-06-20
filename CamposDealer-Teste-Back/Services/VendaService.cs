@@ -70,6 +70,18 @@ namespace CamposDealer_Teste_Back.Services
             return venda;
         }
 
+        public async Task<List<Venda>> Buscar(string searchString)
+        {
+            if (string.IsNullOrEmpty(searchString))
+                throw new Exception("Pesquisa invalida");
+
+            return await _context.Vendas
+                .Where(v => v.Produto.dscProduto.Contains(searchString) || v.Cliente.nmCliente.Contains(searchString))
+                .Include(v => v.Cliente)
+                .Include(v => v.Produto)
+                .ToListAsync();
+        }
+
         public async Task<Venda> Editar(int id, VendaDTO dto)
         {
             dto.Validar();
