@@ -38,7 +38,7 @@ namespace CamposDealer_Teste_Back.Controllers
         }
 
         [HttpPut]
-        public async Task<Venda> Editar(int id, [FromBody]EditarVendaDTO dto)
+        public async Task<Venda> Editar(int id, [FromBody]VendaDTO dto)
         {
             return await _vendaService.Editar(id, dto);
         }
