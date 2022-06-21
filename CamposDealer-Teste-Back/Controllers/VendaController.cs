@@ -54,5 +54,11 @@ namespace CamposDealer_Teste_Back.Controllers
         {
             return await _vendaService.Remover(id);
         }
+
+        [HttpGet]
+        public async Task ObterDadosExternos()
+        {
+            await _vendaService.ObterDadosExternos();
+        }
     }
 }

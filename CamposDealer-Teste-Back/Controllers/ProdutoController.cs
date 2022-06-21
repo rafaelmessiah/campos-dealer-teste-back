@@ -38,9 +38,9 @@ namespace CamposDealer_Teste_Back.Controllers
         }
 
         [HttpPost]
-        public async Task<Produto> Criar([FromBody] ProdutoDTO dto)
+        public async Task<Produto> Cadastrar([FromBody] ProdutoDTO dto)
         {
-            return await _produtoService.Criar(dto);
+            return await _produtoService.Cadastrar(dto);
         }
 
         [HttpPut]
@@ -53,6 +53,12 @@ namespace CamposDealer_Teste_Back.Controllers
         public async Task<bool> Remover(int id)
         {
             return await _produtoService.Remover(id);
+        }
+
+        [HttpGet]
+        public async Task ObterDadosExternos()
+        {
+            await _produtoService.ObterDadosExternos();
         }
     }
 }

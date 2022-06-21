@@ -40,7 +40,7 @@ namespace CamposDealer_Teste_Back.Services
                 .ToListAsync();
         }
 
-        public async Task<Produto> Criar(ProdutoDTO dto)
+        public async Task<Produto> Cadastrar(ProdutoDTO dto)
         {
             dto.Validar();
 
@@ -84,6 +84,23 @@ namespace CamposDealer_Teste_Back.Services
             await _context.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task ObterDadosExternos()
+        {
+            var camposDealerService = new CamposDealerService();
+
+            var produtos = await camposDealerService.ObterProdutos();
+
+            foreach (var produto in produtos)
+            {
+                if(!_context.Produtos.Any(p => p.idProduto == produto.idProduto))
+                {
+                    _context.Produtos.Add(produto);
+                }
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }

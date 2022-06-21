@@ -85,5 +85,22 @@ namespace CamposDealer_Teste_Back.Services
 
             return true;
         }
+
+        public async Task ObterDadosExternos()
+        {
+            var camposDealerService = new CamposDealerService();
+
+            var clientes = await camposDealerService.ObterClientes();
+
+            foreach (var cliente in clientes)
+            {
+                if (!_context.Clientes.Any(c => c.idCliente == cliente.idCliente))
+                {
+                    _context.Clientes.Add(cliente);
+                }
+            }
+
+            await _context.SaveChangesAsync();
+        }
     }
 }

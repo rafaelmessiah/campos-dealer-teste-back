@@ -130,5 +130,22 @@ namespace CamposDealer_Teste_Back.Services
 
             return true;
         }
+
+        public async Task ObterDadosExternos()
+        {
+            var camposDealerService = new CamposDealerService();
+
+            var vendas = await camposDealerService.ObterVendas();
+
+            foreach (var venda in vendas)
+            {
+                if (!_context.Vendas.Any(v => v.idVenda == v.idVenda))
+                {
+                    _context.Vendas.Add(venda);
+                }
+            }
+
+            await _context.SaveChangesAsync();
+        }
     }
 }
